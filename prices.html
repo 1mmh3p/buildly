@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أسعار المواد - Buildly</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <a href="index.html" class="logo">Buildly</a>
+                </div>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">الرئيسية</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="calculator.html" class="nav-link">حاسبة التكاليف</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="prices.html" class="nav-link active">أسعار المواد</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="decoration.html" class="nav-link">الديكور</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link">من نحن</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">تواصل معنا</a>
+                    </li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Prices Section -->
+    <section class="prices">
+        <div class="container">
+            <h2 class="section-title">أسعار مواد البناء</h2>
+            <p class="section-description" style="text-align: center; margin-bottom: 3rem; color: var(--gray-color);">
+                آخر تحديث لأسعار مواد البناء حسب المحافظات السورية
+            </p>
+            
+            <!-- فلتر المحافظات -->
+            <div class="province-filter" style="margin-bottom: 2rem;">
+                <label for="provinceSelect" style="font-weight: 600; margin-left: 1rem;">اختر المحافظة:</label>
+                <select id="provinceSelect" class="form-control" style="display: inline-block; width: auto;">
+                    <option value="1">دمشق</option>
+                    <option value="2">درعا</option>
+                    <option value="3">حمص</option>
+                    <option value="4">حلب</option>
+                    <option value="5">اللاذقية</option>
+                    <option value="6">حماة</option>
+                    <option value="7">طرطوس</option>
+                    <option value="8">السويداء</option>
+                    <option value="9">دير الزور</option>
+                    <option value="10">الحسكة</option>
+                    <option value="11">الرقة</option>
+                    <option value="12">القنيطرة</option>
+                </select>
+            </div>
+            
+            <div class="price-info" style="background-color: #e3f2fd; padding: 1rem; border-radius: 8px; margin-bottom: 2rem; text-align: center;">
+                <p><i class="fas fa-info-circle"></i> آخر تحديث: <span id="lastUpdate">١ ديسمبر ٢٠٢٣</span></p>
+            </div>
+            
+            <div class="prices-table-container">
+                <table class="prices-table" id="pricesTable">
+                    <thead>
+                        <tr>
+                            <th>المادة</th>
+                            <th>الوحدة</th>
+                            <th>السعر ($)</th>
+                            <th>المحافظة</th>
+                            <th>آخر تحديث</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- سيتم ملؤها بالجافاسكريبت -->
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="price-notes" style="margin-top: 2rem; padding: 1.5rem; background-color: #f8f9fa; border-radius: 8px;">
+                <h4>ملاحظات هامة:</h4>
+                <ul style="list-style-type: disc; padding-right: 1.5rem; color: var(--gray-color);">
+                    <li>الأسعار بالدولار الأمريكي</li>
+                    <li>الأسعار قد تختلف حسب الكمية والموقع</li>
+                    <li>يتم تحديث الأسعار أسبوعياً</li>
+                    <li>للاستفسار عن أسعار الجملة، يرجى التواصل مع الموردين مباشرة</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Price Trends Section -->
+    <section class="trends" style="background-color: var(--light-color); padding: 3rem 0;">
+        <div class="container">
+            <h3 class="section-title">مقارنة الأسعار بين المحافظات</h3>
+            <div class="trends-grid" id="provinceComparison">
+                <!-- سيتم ملؤها بالجافاسكريبت -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="footer-title">Buildly Syria</h3>
+                    <p class="footer-description">
+                        نظام متكامل لتقدير تكاليف البناء في سوريا،.
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-subtitle">روابط سريعة</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="calculator.html">حاسبة التكاليف</a></li>
+                        <li><a href="prices.html">أسعار المواد</a></li>
+                        <li><a href="decoration.html">الديكور</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-subtitle">معلومات الاتصال</h4>
+                    <ul class="footer-contact">
+                        <li><i class="fas fa-envelope"></i> info@buildly.sy</li>
+                        <li><i class="fas fa-phone"></i> +963 956 031 959</li>
+                        <li><i class="fas fa-map-marker-alt"></i> درعا، سوريا</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 Buildly Syria </p>
+            </div>
+        </div>
+    </footer>
+
+  
+
+
+    <script src="js/script.js"></script>
+    <script>
+        // بيانات الأسعار (يمكن استبدالها بطلب AJAX من الخادم)
+       // 🧱 بيانات أسعار مواد البناء في جميع المحافظات السورية (افتراضية وواقعية الشكل)
+const pricesData = {
+    '1': [ // دمشق
+        { name: 'إسمنت أسود', unit: 'طن', price: 115.00, province: 'دمشق', updated: '2025-12-01' },
+        { name: 'إسمنت أبيض', unit: 'طن', price: 125.00, province: 'دمشق', updated: '2025-12-01' },
+        { name: 'حديد', unit: 'طن', price: 680.00, province: 'دمشق', updated: '2025-12-01' },
+        { name: 'رمل', unit: 'م³', price: 15.20, province: 'دمشق', updated: '2025-12-01' },
+        { name: 'بلوك 20 سم', unit: 'قطعة', price: 0.39, province: 'دمشق', updated: '2025-12-01' }
+    ],
+    '2': [ // ريف دمشق
+        { name: 'إسمنت', unit: 'طن', price: 116.00, province: 'ريف دمشق', updated: '2025-12-01' },
+        { name: 'حديد', unit: 'طن', price: 670.00, province: 'ريف دمشق', updated: '2025-12-01' },
+        { name: 'رمل', unit: 'م³', price: 15.50, province: 'ريف دمشق', updated: '2025-12-01' },
+        { name: 'بلوك 20 سم', unit: 'قطعة', price: 0.40, province: 'ريف دمشق', updated: '2025-12-01' }
+    ],
+    '3': [ // حلب
+        { name: 'إسمنت', unit: 'طن', price: 120.00, province: 'حلب', updated: '2025-12-01' },
+        { name: 'حديد', unit: 'طن', price: 685.00, province: 'حلب', updated: '2025-12-01' },
+        { name: 'رمل', unit: 'م³', price: 14.80, province: 'حلب', updated: '2025-12-01' },
+        { name: 'بلوك 20 سم', unit: 'قطعة', price: 0.42, province: 'حلب', updated: '2025-12-01' }
+    ],
+    '4': [ // حمص
+        { name: 'إسمنت', unit: 'طن', price: 118.00, province: 'حمص', updated: '2025-12-01' },
+        { name: 'حديد', unit: 'طن', price: 670.00, province: 'حمص', updated: '2025-12-01' },
+        { name: 'رمل', unit: 'م³', price: 15.00, province: 'حمص', updated: '2025-12-01' },
+        { name: 'بلوك 20 سم', unit: 'قطعة', price: 0.41, province: 'حمص', updated: '2025-12-01' }
+    ],
+    '5': [ // حماة
+        { name: 'إسمنت', unit: 'طن', price: 117.00, province: 'حماة', updated: '2025-12-01' },
+        { name: 'حديد', unit: 'طن', price: 665.00, province: 'حماة', updated: '2025-12-01' },
+        { name: 'رمل', unit: 'م³', price: 15.50, province: 'حماة', updated: '2025-12-01' },
+        { name: 'بلوك 20 سم', unit: 'قطعة', price: 0.41, province: 'حماة', updated: '2025-12-01' }
+    ],
+    '6': [ // اللاذقية
+        { name: 'إسمنت', unit: 'طن', price: 122.00, province: 'اللاذقية', updated: '2025-12-01' },
+        { name: 'حديد', unit: 'طن', price: 690.00, province: 'اللاذقية', updated: '2025-12-01' },
+        { name: 'رمل', unit: 'م³', price: 16.20, province: 'اللاذقية', updated: '2025-12-01' },
+        { name: 'بلوك 20 سم', unit: 'قطعة', price: 0.44, province: 'اللاذقية', updated: '2025-12-01' }
+    ],
+    '7': [ // طرطوس
+        { name: 'إسمنت', unit: 'طن', price: 120.00, province: 'طرطوس', updated: '2025-12-01' },
+        { name: 'حديد', unit: 'طن', price: 700.00, province: 'طرطوس', updated: '2025-12-01' },
+        { name: 'رمل', unit: 'م³', price: 16.50, province: 'طرطوس', updated: '2025-12-01' },
+        { name: 'بلوك 20 سم', unit: 'قطعة', price: 0.45, province: 'طرطوس', updated: '2025-12-01' }
+    ],
+    '8': [ // إدلب
+        { name: 'إسمنت', unit: 'طن', price: 118.50, province: 'إدلب', updated: '2025-12-01' },
+        { name: 'حديد', unit: 'طن', price: 675.00, province: 'إدلب', updated: '2025-12-01' },
+        { name: 'رمل', unit: 'م³', price: 15.80, province: 'إدلب', updated: '2025-12-01' },
+        { name: 'بلوك 20 سم', unit: 'قطعة', price: 0.43, province: 'إدلب', updated: '2025-12-01' }
+    ],
+    '9': [ // درعا
+        { name: 'إسمنت', unit: 'طن', price: 115.00, province: 'درعا', updated: '2025-12-01' },
+        { name: 'حديد', unit: 'طن', price: 655.00, province: 'درعا', updated: '2025-12-01' },
+        { name: 'رمل وبحص', unit: 'م³', price: 16.88, province: 'درعا', updated: '2025-12-01' },
+        { name: 'بلوك 20 سم', unit: 'قطعة', price: 0.48, province: 'درعا', updated: '2025-12-01' }
+    ],
+    '10': [ // السويداء
+        { name: 'إسمنت', unit: 'طن', price: 118.50, province: 'السويداء', updated: '2025-12-01' },
+        { name: 'حديد', unit: 'طن', price: 675.00, province: 'السويداء', updated: '2025-12-01' },
+        { name: 'رمل', unit: 'م³', price: 15.80, province: 'السويداء', updated: '2025-12-01' },
+        { name: 'بلوك 20 سم', unit: 'قطعة', price: 0.43, province: 'السويداء', updated: '2025-12-01' }
+    ],
+    '11': [ // دير الزور
+        { name: 'إسمنت', unit: 'طن', price: 119.00, province: 'دير الزور', updated: '2025-12-01' },
+        { name: 'حديد', unit: 'طن', price: 690.00, province: 'دير الزور', updated: '2025-12-01' },
+        { name: 'رمل', unit: 'م³', price: 18.00, province: 'دير الزور', updated: '2025-12-01' },
+        { name: 'بلوك 20 سم', unit: 'قطعة', price: 0.46, province: 'دير الزور', updated: '2025-12-01' }
+    ],
+    '12': [ // الحسكة
+        { name: 'إسمنت', unit: 'طن', price: 121.00, province: 'الحسكة', updated: '2025-12-01' },
+        { name: 'حديد', unit: 'طن', price: 710.00, province: 'الحسكة', updated: '2025-12-01' },
+        { name: 'رمل', unit: 'م³', price: 17.50, province: 'الحسكة', updated: '2025-12-01' },
+        { name: 'بلوك 20 سم', unit: 'قطعة', price: 0.47, province: 'الحسكة', updated: '2025-12-01' }
+    ],
+    '13': [ // الرقة
+        { name: 'إسمنت', unit: 'طن', price: 118.00, province: 'الرقة', updated: '2025-12-01' },
+        { name: 'حديد', unit: 'طن', price: 695.00, province: 'الرقة', updated: '2025-12-01' },
+        { name: 'رمل', unit: 'م³', price: 16.50, province: 'الرقة', updated: '2025-12-01' },
+        { name: 'بلوك 20 سم', unit: 'قطعة', price: 0.44, province: 'الرقة', updated: '2025-12-01' }
+    ],
+    '14': [ // القنيطرة
+        { name: 'إسمنت', unit: 'طن', price: 116.00, province: 'القنيطرة', updated: '2025-12-01' },
+        { name: 'حديد', unit: 'طن', price: 665.00, province: 'القنيطرة', updated: '2025-12-01' },
+        { name: 'رمل', unit: 'م³', price: 15.80, province: 'القنيطرة', updated: '2025-12-01' },
+        { name: 'بلوك 20 سم', unit: 'قطعة', price: 0.40, province: 'القنيطرة', updated: '2025-12-01' }
+    ]
+};
+
+
+        function updatePricesTable(provinceId) {
+            const tbody = document.querySelector('#pricesTable tbody');
+            tbody.innerHTML = '';
+            
+            if (pricesData[provinceId]) {
+                pricesData[provinceId].forEach(material => {
+                    tbody.innerHTML += `
+                        <tr>
+                            <td>${material.name}</td>
+                            <td>${material.unit}</td>
+                            <td>${material.price} $</td>
+                            <td>${material.province}</td>
+                            <td>${material.updated}</td>
+                        </tr>
+                    `;
+                });
+            } else {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="5" style="text-align: center; padding: 2rem;">
+                            لا توجد بيانات لهذه المحافظة حالياً
+                        </td>
+                    </tr>
+                `;
+            }
+        }
+
+        function updateComparison() {
+            const comparisonDiv = document.getElementById('provinceComparison');
+            comparisonDiv.innerHTML = '';
+            
+            // مقارنة أسعار المواد الأساسية بين المحافظات
+            const commonMaterials = ['إسمنت', 'رمل', 'بلوك 20 سم'];
+            
+            commonMaterials.forEach(material => {
+                let comparisonHTML = `
+                    <div class="trend-card">
+                        <div class="trend-header">
+                            <h4>${material}</h4>
+                            <i class="fas fa-balance-scale"></i>
+                        </div>
+                        <ul class="trend-list">
+                `;
+                
+                Object.keys(pricesData).forEach(provinceId => {
+                    const provinceMaterials = pricesData[provinceId];
+                    const materialData = provinceMaterials.find(m => m.name.includes(material));
+                    if (materialData) {
+                        comparisonHTML += `<li>${materialData.province} <span>${materialData.price} $</span></li>`;
+                    }
+                });
+                
+                comparisonHTML += `</ul></div>`;
+                comparisonDiv.innerHTML += comparisonHTML;
+            });
+        }
+
+        document.getElementById('provinceSelect').addEventListener('change', function() {
+            updatePricesTable(this.value);
+        });
+
+        // التهيئة الأولية
+        updatePricesTable('1');
+        updateComparison();
+
+        // إضافة أنماط إضافية
+        const style = document.createElement('style');
+        style.textContent = `
+            .province-filter {
+                text-align: center;
+                background: #f8f9fa;
+                padding: 1rem;
+                border-radius: 8px;
+            }
+            
+            .price-up {
+                color: var(--danger-color);
+                font-weight: 600;
+            }
+            
+            .price-down {
+                color: var(--success-color);
+                font-weight: 600;
+            }
+            
+            .price-stable {
+                color: var(--gray-color);
+                font-weight: 600;
+            }
+            
+            .trends-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 2rem;
+                margin-top: 2rem;
+            }
+            
+            .trend-card {
+                background-color: var(--white-color);
+                padding: 2rem;
+                border-radius: 8px;
+                box-shadow: var(--shadow);
+            }
+            
+            .trend-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 1.5rem;
+                padding-bottom: 1rem;
+                border-bottom: 1px solid #eee;
+            }
+            
+            .trend-header h4 {
+                margin: 0;
+            }
+            
+            .trend-list {
+                list-style: none;
+                padding: 0;
+            }
+            
+            .trend-list li {
+                display: flex;
+                justify-content: space-between;
+                padding: 0.75rem 0;
+                border-bottom: 1px solid #f5f5f5;
+            }
+            
+            .trend-list li:last-child {
+                border-bottom: none;
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>

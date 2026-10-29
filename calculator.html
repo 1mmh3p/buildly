@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حاسبة التكاليف - Buildly</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <a href="index.html" class="logo">Buildly</a>
+                </div>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">الرئيسية</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="calculator.html" class="nav-link active">حاسبة التكاليف</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="prices.html" class="nav-link">أسعار المواد</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="decoration.html" class="nav-link">الديكور</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link">من نحن</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">تواصل معنا</a>
+                    </li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Calculator Section -->
+    <section class="calculator">
+        <div class="container">
+            <h2 class="section-title">حاسبة تكاليف البناء</h2>
+            <p class="section-description" style="text-align: center; margin-bottom: 3rem; color: var(--gray-color);">
+                أدخل بيانات مشروعك للحصول على تقدير دقيق لكميات المواد والتكاليف حسب منطقتك
+            </p>
+            
+            <div class="calculator-container">
+                <div class="calculator-form">
+                    <form id="calculatorForm">
+                        <!-- المحافظة -->
+                        <div class="form-group">
+                            <label for="province" class="form-label">المحافظة</label>
+                            <select id="province" name="province" class="form-control form-select" required>
+                                <option value="">اختر المحافظة</option>
+                                <option value="1">دمشق</option>
+                                <option value="2">درعا</option>
+                                <option value="3">حمص</option>
+                                <option value="4">حلب</option>
+                                <option value="5">اللاذقية</option>
+                                <option value="6">حماة</option>
+                                <option value="7">طرطوس</option>
+                                <option value="8">السويداء</option>
+                                <option value="9">دير الزور</option>
+                                <option value="10">الحسكة</option>
+                                <option value="11">الرقة</option>
+                                <option value="12">القنيطرة</option>
+                            </select>
+                        </div>
+
+                        <!-- مساحة البناء -->
+                        <div class="form-group">
+                            <label for="area" class="form-label">مساحة البناء (م²)</label>
+                            <input type="number" id="area" name="area" class="form-control" min="1" step="0.1" placeholder="أدخل المساحة بالمتر المربع" required>
+                        </div>
+                        
+                        <!-- نوع البناء -->
+                        <div class="form-group">
+                            <label for="buildingType" class="form-label">نوع البناء</label>
+                            <select id="buildingType" name="buildingType" class="form-control form-select" required>
+                                <option value="">اختر نوع البناء</option>
+                                <option value="house">منزل</option>
+                                <option value="villa">فيلا</option>
+                                <option value="apartment">عمارة</option>
+                                <option value="commercial">تجاري</option>
+                            </select>
+                        </div>
+                        
+                        <!-- عدد الطوابق -->
+                        <div class="form-group">
+                            <label for="floors" class="form-label">عدد الطوابق</label>
+                            <input type="number" id="floors" name="floors" class="form-control" min="1" value="1" required>
+                        </div>
+                        
+                        <!-- خيارات إضافية -->
+                        <div class="form-group">
+                            <label class="form-label">خيارات إضافية</label>
+                            <div class="checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="basement" value="yes"> طابق تحت الأرض (بدروم)
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="garage" value="yes"> كراج سيارات
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <!-- جودة المواد -->
+                        <div class="form-group">
+                            <label for="materialQuality" class="form-label">جودة المواد</label>
+                            <select id="materialQuality" name="materialQuality" class="form-control form-select" required>
+                                <option value="standard">عادية</option>
+                                <option value="premium">ممتازة</option>
+                                <option value="luxury">فاخرة</option>
+                            </select>
+                        </div>
+                        
+                        <!-- خيارات الإكساء -->
+                        <div class="form-group">
+                            <label for="finishing" class="form-label">خيارات الإكساء</label>
+                            <select id="finishing" name="finishing" class="form-control form-select">
+                                <option value="none">بدون إكساء</option>
+                                <option value="stone">تركيب الحجر على الواجهة</option>
+                                <option value="marble">تلبيس الجدران بالرخام</option>
+                                <option value="tiles">تركيب البلاط على الأرضيات والجدران</option>
+                                <option value="panels">تركيب الألواح المعدنية أو الخشبية</option>
+                                <option value="full">إكساء كامل</option>
+                            </select>
+                        </div>
+                        
+                        <!-- الشركات المتاحة -->
+                        <div class="form-group" id="companiesSection" style="display: none;">
+                            <label class="form-label">الشركات المتاحة في منطقتك</label>
+                            <div id="companiesList" class="companies-list">
+                                <!-- سيتم ملؤها بالجافاسكريبت -->
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-block">
+                            <i class="fas fa-calculator"></i> احسب الآن
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="results" id="resultsSection" style="display: none;">
+                    <div class="results-header">
+                        <h3>نتائج التقدير</h3>
+                        <div class="results-actions">
+                            <button id="downloadPdf" class="btn btn-secondary">
+                                <i class="fas fa-download"></i> تحميل PDF
+                            </button>
+                            <button id="printResults" class="btn btn-secondary">
+                                <i class="fas fa-print"></i> طباعة
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="project-summary">
+                        <h4>ملخص المشروع</h4>
+                        <div class="summary-grid">
+                            <div class="summary-item">
+                                <span class="summary-label">المحافظة:</span>
+                                <span class="summary-value" id="summaryProvince">-</span>
+                            </div>
+                            <div class="summary-item">
+                                <span class="summary-label">المساحة:</span>
+                                <span class="summary-value" id="summaryArea">-</span>
+                            </div>
+                            <div class="summary-item">
+                                <span class="summary-label">نوع البناء:</span>
+                                <span class="summary-value" id="summaryType">-</span>
+                            </div>
+                            <div class="summary-item">
+                                <span class="summary-label">عدد الطوابق:</span>
+                                <span class="summary-value" id="summaryFloors">-</span>
+                            </div>
+                            <div class="summary-item">
+                                <span class="summary-label">طابق تحت الأرض:</span>
+                                <span class="summary-value" id="summaryBasement">-</span>
+                            </div>
+                            <div class="summary-item">
+                                <span class="summary-label">كراج:</span>
+                                <span class="summary-value" id="summaryGarage">-</span>
+                            </div>
+                            <div class="summary-item">
+                                <span class="summary-label">جودة المواد:</span>
+                                <span class="summary-value" id="summaryQuality">-</span>
+                            </div>
+                            <div class="summary-item">
+                                <span class="summary-label">نوع الإكساء:</span>
+                                <span class="summary-value" id="summaryFinishing">-</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <table class="results-table" id="resultsTable">
+                        <thead>
+                            <tr>
+                                <th>المادة</th>
+                                <th>الكمية المطلوبة</th>
+                                <th>السعر للوحدة</th>
+                                <th>التكلفة الإجمالية</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- سيتم ملؤها بالجافاسكريبت -->
+                        </tbody>
+                    </table>
+                    
+                    <div class="total-cost">
+                        <div class="total-item">
+                            <span>التكلفة الإجمالية للمواد:</span>
+                            <span id="totalCost">0 $</span>
+                        </div>
+                        <div class="total-item">
+                            <span>تكاليف العمالة (تقديرية):</span>
+                            <span id="laborCost">0 $</span>
+                        </div>
+                        <div class="total-item">
+                            <span>تكاليف الإكساء:</span>
+                            <span id="finishingCost">0 $</span>
+                        </div>
+                        <div class="total-item grand-total">
+                            <span>المجموع الكلي:</span>
+                            <span id="grandTotal">0 $</span>
+                        </div>
+                    </div>
+
+                    <!-- الشركات المقترحة -->
+                    <div class="suggested-companies" id="suggestedCompanies" style="display: none;">
+                        <h4>الشركات المقترحة في منطقتك</h4>
+                        <div id="companiesResults" class="companies-results">
+                            <!-- سيتم ملؤها بالجافاسكريبت -->
+                        </div>
+                    </div>
+                    
+                    <div class="results-note">
+                        <p><i class="fas fa-info-circle"></i> ملاحظة: هذه التقديرات تقريبية وقد تختلف حسب الموقع والظروف المحلية.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tips Section -->
+    <section class="tips" style="background-color: var(--light-color); padding: 3rem 0;">
+        <div class="container">
+            <h3 class="section-title">نصائح لتوفير التكاليف</h3>
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <i class="fas fa-clipboard-list"></i>
+                    <h4>التخطيط المسبق</h4>
+                    <p>خطط لمشروعك بدقة قبل البدء لتجنب التغييرات المكلفة لاحقاً</p>
+                </div>
+                <div class="tip-card">
+                    <i class="fas fa-shopping-cart"></i>
+                    <h4>شراء الجملة</h4>
+                    <p>شراء المواد بكميات كبيرة قد يوفر لك ما يصل إلى 20% من التكلفة</p>
+                </div>
+                <div class="tip-card">
+                    <i class="fas fa-calendar-alt"></i>
+                    <h4>التوقيت المناسب</h4>
+                    <p>بعض المواسم تكون أسعار المواد فيها أقل من غيرها</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+       <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="footer-title">Buildly Syria</h3>
+                    <p class="footer-description">
+                        نظام متكامل لتقدير تكاليف البناء في سوريا،.
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-subtitle">روابط سريعة</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="calculator.html">حاسبة التكاليف</a></li>
+                        <li><a href="prices.html">أسعار المواد</a></li>
+                        <li><a href="decoration.html">الديكور</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-subtitle">معلومات الاتصال</h4>
+                    <ul class="footer-contact">
+                        <li><i class="fas fa-envelope"></i> info@buildly.sy</li>
+                        <li><i class="fas fa-phone"></i> +963 956 031 959</li>
+                        <li><i class="fas fa-map-marker-alt"></i> درعا، سوريا</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 Buildly Syria </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+        // بيانات الشركات (يمكن استبدالها بطلب AJAX من الخادم)
+        const companiesData = {
+            '1': [
+                { name: 'الشركة السورية للبناء', phone: '+963111111111', email: 'info@syriabuild.com', address: 'دمشق - المزة' },
+                { name: 'أبواب دمشق للمقاولات', phone: '+963111111112', email: 'info@abwabdamascus.com', address: 'دمشق - برزة' }
+            ],
+            '2': [
+                { name: 'درعا للإنشاءات', phone: '+963111111113', email: 'info@daraaconst.com', address: 'درعا - المدينة' },
+                { name: 'البناء الحديث درعا', phone: '+963111111114', email: 'info@modernbuild.com', address: 'درعا - الصناعة' }
+            ],
+            '3': [
+                { name: 'حمص للمقاولات العامة', phone: '+963111111115', email: 'info@homscontract.com', address: 'حمص - الحمراء' }
+            ]
+        };
+
+        // أسعار المواد حسب المحافظة
+        const materialsData = {
+            '1': { // دمشق
+                'إسمنت أسود': { unit: 'طن', price: 115 },
+                'إسمنت أبيض': { unit: 'طن', price: 125 },
+                'رمل': { unit: 'م³', price: 15.2 },
+                'عدسية': { unit: 'م³', price: 24.3 },
+                'بلوك 24 سم': { unit: 'قطعة', price: 0.52 },
+                'بلوك 22 سم': { unit: 'قطعة', price: 0.48 },
+                'بلوك 20 سم': { unit: 'قطعة', price: 0.39 },
+                'بلوك 15 سم': { unit: 'قطعة', price: 0.37 }
+            },
+            '2': { // درعا
+                'إسمنت': { unit: 'طن', price: 115 },
+                'حديد': { unit: 'طن', price: 655 },
+                'رمل وبحص': { unit: 'م³', price: 16.88 },
+                'بلوك 20 سم': { unit: 'قطعة', price: 0.48 },
+                'بلوك 18 سم': { unit: 'قطعة', price: 0.48 },
+                'بلوك 15 سم': { unit: 'قطعة', price: 0.40 },
+                'بلوك 14 سم': { unit: 'قطعة', price: 0.40 }
+            }
+        };
+
+        // تكاليف الإكساء
+        const finishingCosts = {
+            'none': 0,
+            'stone': 50, // دولار للمتر المربع
+            'marble': 80,
+            'tiles': 30,
+            'panels': 40,
+            'full': 120
+        };
+
+        document.getElementById('province').addEventListener('change', function() {
+            const provinceId = this.value;
+            const companiesSection = document.getElementById('companiesSection');
+            const companiesList = document.getElementById('companiesList');
+            
+            if (provinceId && companiesData[provinceId]) {
+                companiesList.innerHTML = '';
+                companiesData[provinceId].forEach(company => {
+                    companiesList.innerHTML += `
+                        <div class="company-item">
+                            <strong>${company.name}</strong>
+                            <div>📞 ${company.phone}</div>
+                            <div>📧 ${company.email}</div>
+                            <div>📍 ${company.address}</div>
+                        </div>
+                    `;
+                });
+                companiesSection.style.display = 'block';
+            } else {
+                companiesSection.style.display = 'none';
+            }
+        });
+
+        document.getElementById('calculatorForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            calculateCost();
+        });
+
+        function calculateCost() {
+            const formData = new FormData(document.getElementById('calculatorForm'));
+            const area = parseFloat(formData.get('area'));
+            const floors = parseInt(formData.get('floors'));
+            const provinceId = formData.get('province');
+            const buildingType = formData.get('buildingType');
+            const materialQuality = formData.get('materialQuality');
+            const finishing = formData.get('finishing');
+            const hasBasement = formData.get('basement') === 'yes';
+            const hasGarage = formData.get('garage') === 'yes';
+
+            // حساب المساحة الإجمالية
+            let totalArea = area * floors;
+            if (hasBasement) totalArea += area * 0.8; // البدروم عادة أصغر
+            if (hasGarage) totalArea += area * 0.5; // الكراج
+
+            // معامل الجودة
+            const qualityMultiplier = {
+                'standard': 1,
+                'premium': 1.3,
+                'luxury': 1.7
+            }[materialQuality];
+
+            // حساب التكاليف
+            let totalMaterialCost = 0;
+            let materials = [];
+
+            if (materialsData[provinceId]) {
+                const provinceMaterials = materialsData[provinceId];
+                
+                // حساب كميات المواد التقريبية
+                const cementAmount = totalArea * 0.15; // طن
+                const sandAmount = totalArea * 0.3; // م³
+                const blocksAmount = totalArea * 12; // قطعة
+                const steelAmount = totalArea * 0.025; // طن
+
+                // حساب التكاليف
+                if (provinceMaterials['إسمنت'] || provinceMaterials['إسمنت أسود']) {
+                    const cementPrice = provinceMaterials['إسمنت'] ? provinceMaterials['إسمنت'].price : provinceMaterials['إسمنت أسود'].price;
+                    const cementCost = cementAmount * cementPrice * qualityMultiplier;
+                    materials.push({
+                        name: 'إسمنت',
+                        quantity: cementAmount.toFixed(2),
+                        unit: 'طن',
+                        unitPrice: cementPrice,
+                        total: cementCost
+                    });
+                    totalMaterialCost += cementCost;
+                }
+
+                if (provinceMaterials['رمل'] || provinceMaterials['رمل وبحص']) {
+                    const sandPrice = provinceMaterials['رمل'] ? provinceMaterials['رمل'].price : provinceMaterials['رمل وبحص'].price;
+                    const sandCost = sandAmount * sandPrice * qualityMultiplier;
+                    materials.push({
+                        name: 'رمل',
+                        quantity: sandAmount.toFixed(2),
+                        unit: 'م³',
+                        unitPrice: sandPrice,
+                        total: sandCost
+                    });
+                    totalMaterialCost += sandCost;
+                }
+
+                if (provinceMaterials['بلوك 20 سم']) {
+                    const blockPrice = provinceMaterials['بلوك 20 سم'].price;
+                    const blockCost = blocksAmount * blockPrice * qualityMultiplier;
+                    materials.push({
+                        name: 'بلوك بناء',
+                        quantity: blocksAmount.toFixed(0),
+                        unit: 'قطعة',
+                        unitPrice: blockPrice,
+                        total: blockCost
+                    });
+                    totalMaterialCost += blockCost;
+                }
+
+                if (provinceMaterials['حديد']) {
+                    const steelCost = steelAmount * provinceMaterials['حديد'].price * qualityMultiplier;
+                    materials.push({
+                        name: 'حديد تسليح',
+                        quantity: steelAmount.toFixed(3),
+                        unit: 'طن',
+                        unitPrice: provinceMaterials['حديد'].price,
+                        total: steelCost
+                    });
+                    totalMaterialCost += steelCost;
+                }
+            }
+
+            // تكاليف العمالة (40% من تكاليف المواد)
+            const laborCost = totalMaterialCost * 0.4;
+
+            // تكاليف الإكساء
+            const finishingCost = finishingCosts[finishing] * area;
+
+            // المجموع الكلي
+            const grandTotal = totalMaterialCost + laborCost + finishingCost;
+
+            // عرض النتائج
+            displayResults({
+                province: document.getElementById('province').options[document.getElementById('province').selectedIndex].text,
+                area: area,
+                buildingType: document.getElementById('buildingType').options[document.getElementById('buildingType').selectedIndex].text,
+                floors: floors,
+                basement: hasBasement ? 'نعم' : 'لا',
+                garage: hasGarage ? 'نعم' : 'لا',
+                quality: document.getElementById('materialQuality').options[document.getElementById('materialQuality').selectedIndex].text,
+                finishing: document.getElementById('finishing').options[document.getElementById('finishing').selectedIndex].text,
+                materials: materials,
+                totalMaterialCost: totalMaterialCost,
+                laborCost: laborCost,
+                finishingCost: finishingCost,
+                grandTotal: grandTotal,
+                provinceId: provinceId
+            });
+        }
+
+        function displayResults(data) {
+            // تحديث ملخص المشروع
+            document.getElementById('summaryProvince').textContent = data.province;
+            document.getElementById('summaryArea').textContent = data.area + ' م²';
+            document.getElementById('summaryType').textContent = data.buildingType;
+            document.getElementById('summaryFloors').textContent = data.floors;
+            document.getElementById('summaryBasement').textContent = data.basement;
+            document.getElementById('summaryGarage').textContent = data.garage;
+            document.getElementById('summaryQuality').textContent = data.quality;
+            document.getElementById('summaryFinishing').textContent = data.finishing;
+
+            // تحديث جدول المواد
+            const tbody = document.querySelector('#resultsTable tbody');
+            tbody.innerHTML = '';
+            data.materials.forEach(material => {
+                tbody.innerHTML += `
+                    <tr>
+                        <td>${material.name}</td>
+                        <td>${material.quantity} ${material.unit}</td>
+                        <td>${material.unitPrice.toFixed(2)} $</td>
+                        <td>${material.total.toFixed(2)} $</td>
+                    </tr>
+                `;
+            });
+
+            // تحديث التكاليف
+            document.getElementById('totalCost').textContent = data.totalMaterialCost.toFixed(2) + ' $';
+            document.getElementById('laborCost').textContent = data.laborCost.toFixed(2) + ' $';
+            document.getElementById('finishingCost').textContent = data.finishingCost.toFixed(2) + ' $';
+            document.getElementById('grandTotal').textContent = data.grandTotal.toFixed(2) + ' $';
+
+            // عرض الشركات المقترحة
+            const suggestedCompanies = document.getElementById('suggestedCompanies');
+            const companiesResults = document.getElementById('companiesResults');
+            
+            if (companiesData[data.provinceId]) {
+                companiesResults.innerHTML = '';
+                companiesData[data.provinceId].forEach(company => {
+                    companiesResults.innerHTML += `
+                        <div class="company-card">
+                            <h5>${company.name}</h5>
+                            <div class="company-info">
+                                <div><i class="fas fa-phone"></i> ${company.phone}</div>
+                                <div><i class="fas fa-envelope"></i> ${company.email}</div>
+                                <div><i class="fas fa-map-marker-alt"></i> ${company.address}</div>
+                            </div>
+                            <button class="btn btn-outline" onclick="contactCompany('${company.name}')">تواصل معنا</button>
+                        </div>
+                    `;
+                });
+                suggestedCompanies.style.display = 'block';
+            } else {
+                suggestedCompanies.style.display = 'none';
+            }
+
+            // إظهار قسم النتائج
+            document.getElementById('resultsSection').style.display = 'block';
+            document.getElementById('resultsSection').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function contactCompany(companyName) {
+            alert(`سيتم التواصل مع شركة ${companyName} قريباً`);
+        }
+
+        // إضافة أنماط إضافية
+        const style = document.createElement('style');
+        style.textContent = `
+            .companies-list {
+                background: #f8f9fa;
+                padding: 1rem;
+                border-radius: 8px;
+                margin-top: 0.5rem;
+            }
+            
+            .company-item {
+                padding: 0.75rem;
+                margin-bottom: 0.5rem;
+                background: white;
+                border-radius: 4px;
+                border-right: 4px solid var(--secondary-color);
+            }
+            
+            .company-item:last-child {
+                margin-bottom: 0;
+            }
+            
+            .companies-results {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 1rem;
+                margin-top: 1rem;
+            }
+            
+            .company-card {
+                background: white;
+                padding: 1.5rem;
+                border-radius: 8px;
+                box-shadow: var(--shadow);
+                border: 1px solid #e9ecef;
+            }
+            
+            .company-card h5 {
+                margin-bottom: 1rem;
+                color: var(--secondary-color);
+            }
+            
+            .company-info div {
+                margin-bottom: 0.5rem;
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+            }
+            
+            .btn-outline {
+                background: transparent;
+                border: 2px solid var(--secondary-color);
+                color: var(--secondary-color);
+                padding: 0.5rem 1rem;
+                border-radius: 4px;
+                cursor: pointer;
+                transition: var(--transition);
+                margin-top: 1rem;
+            }
+            
+            .btn-outline:hover {
+                background: var(--secondary-color);
+                color: white;
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
